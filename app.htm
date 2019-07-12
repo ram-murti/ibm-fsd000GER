@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <title>Time Table</title>
+    <link rel="stylesheet" type="text/css" href="app.css" />
+    <script type="text/javascript" src="app.js"></script>
+
+</head>
+
+<body>
+    <div>
+        <input type="button" value="class 1" id="class1" onclick="empTable()">
+        <input type="button" value="class 2" id="class2" onclick="empTable()"><br>
+    </div>
+
+
+    <fieldset>
+        <input type="button" value="math">
+        <input type="button" value="phy">
+        <input type="button" value="cse"><br>
+        <input type="button" value="chem">
+        <input type="button" value="FSD"><br>
+
+
+    </fieldset>
+    <div id="AA">
+
+    </div>
+    <select>
+            <option>subject</option>
+    <option value="math"onchange="filteremps()">math</option>
+    <option value="eng"onchange="filteremps()">eng</option>
+    <option value="phy"onchange="filteremps()">phy</option>
+    <option value="cse"onchange="filteremps()">cse</option>
+    <option value="cse"onchange="filteremps()">chem</option>
+
+    </select>
+
+    <select>
+            <option>trainer</option>
+    <option value="t1">amit</option>
+    <option value="t2">abc</option>
+    <option value="t3">cd</option>
+    <option value="t4">de</option>
+    <option value="t5">ef</option>
+
+    </select>
+</body>
+
+</html>

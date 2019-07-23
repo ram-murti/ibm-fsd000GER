@@ -1,0 +1,243 @@
+<html>
+
+<head>
+    <title>
+        Shopping Sites
+    </title>
+    <script>
+        let s = [];
+        let total = 0;
+        let a = [];
+        let x;
+        let y;
+        let z = 0;
+        const getpen = () => {
+            const _url = 'http://localhost:1222/pen';
+            fetch(_url, {
+                    headers: {
+                        'username': 'tech',
+                        'password': 'tech'
+                    }
+                })
+                .then(res => res.json())
+                .then(pen => {
+                    createTable(pen);
+
+                })
+        }
+        const gettrimmer = () => {
+            const _url = 'http://localhost:1222/trimmer';
+            fetch(_url, {
+                    headers: {
+                        'username': 'tech',
+                        'password': 'tech'
+                    }
+                })
+                .then(res => res.json())
+                .then(trimmer => {
+                    createtable(trimmer);
+
+                })
+        }
+        const addtocart = () => {
+            let pen1 = document.getElementById('pen1').value;
+
+            const _url = 'http://localhost:1222/pen';
+            fetch(_url, {
+                    headers: {
+                        'username': 'tech',
+                        'password': 'tech'
+                    }
+                })
+                .then(res => res.json())
+                .then(pen => {
+                    createTable(pen1);
+
+                })
+        }
+        const createTable = (data) => {
+            let rows = '';
+
+            data.pen.forEach(u => {
+
+
+                rows += `<tr>
+                            <td>${u.name}</td>
+                            <td>${u.company}</td>
+                            <td>${u.price}</td>
+                            <td>
+                                <input type="button" value="addtocart" onclick="addtotable('${u.name}','${u.price}','${u.company}')">
+                                </td>
+                                <td>
+                               
+                        </tr>`
+            });
+            const _table = `<table border="2">
+                                <tr>
+                                    <th>name</th>
+                                    <th>company</th>
+                                    <th>price</th>
+                                    <th>quantity</th>
+                                    <th>dfff</th>
+                                </tr>
+                                ${rows}
+                            </table>`
+            document.getElementById('item').innerHTML = _table;
+        }
+        const createtable = (data) => {
+            let rows = '';
+
+            data.trimmer.forEach(u => {
+                rows += `<tr>
+                            <td>${u.name}</td>
+                            <td>${u.company}</td>
+                            <td>${u.price}</td>
+                            <td>
+                                <input type="button" value="addtocart"  onclick="addtotable('${u.name}','${u.price}','${u.company}')">
+                                </td>
+                               
+                               
+                        </tr>`
+
+
+
+            });
+            const _table = `<table border="2">
+                                <tr>
+                                    <th>name</th>
+                                    <th>company</th>
+                                    <th>price</th>
+                                    <th>quantity</th>
+                                    <th>dfff</th>
+                                </tr>
+                                ${rows}
+                            </table>`
+            document.getElementById('item1').innerHTML = _table;
+        }
+
+        function addtotable(x, y, z) {
+            total = total + parseInt(y);
+
+            const url = 'http://localhost:1222/cart/add';
+            fetch(url, {
+                method: 'post',
+                headers: {
+                    'username': 'tech',
+                    'password': 'tech',
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: x,
+                    price: y,
+                    company: z
+                })
+            })
+        }
+
+
+        function display() {
+            const _url = 'http://localhost:1222/cart';
+
+            fetch(_url, {
+
+                headers: {
+
+                    'username': 'tech',
+
+                    'password': 'tech'
+
+                }
+
+            })
+
+            .then(res => res.json())
+
+            .then(cart => {
+
+                create1table(cart);
+
+            })
+        }
+        const create1table = (data) => {
+            let rows = '';
+
+            data.cart.forEach(u => {
+                let i = 1;
+                rows += `<tr>
+                            <td>${u.name}</td>
+                            <td>${u.company}</td>
+                            <td>${u.price}</td>
+                            <td> 
+                            <input type="button" value="+" onclick="totalprice('${u.price}')">
+                            <input type="button" value="-"onclick="totalprice1('${u.price}',)">
+                             </td> 
+                                         
+                        </tr>`
+            });
+            const _table = `<table border="2">
+                                <tr>
+                                    <th>name</th>
+                                    <th>company</th>
+                                    <th>price</th>
+                                    
+                                
+                                </tr>
+                                ${rows}
+                            </table>`
+            document.getElementById('t').innerHTML = total;
+            document.getElementById('item2').innerHTML = _table;
+            document.getElementById('ta').style.display = 'block';
+            document.getElementById('product').style.display = 'none';
+            document.getElementById('save').style.display = 'none';
+            document.getElementById('item').style.display = 'none';
+            document.getElementById('item1').style.display = 'none';
+        }
+
+        function totalprice(x) {
+
+
+            total = total + parseInt(x);
+            console.log(total);
+            document.getElementById('t').innerHTML = total;
+            document.getElementById('ta').style.display = 'block';
+            document.getElementById('save').style.display = 'none';
+
+        }
+
+        function totalprice1(x) {
+            total = total - parseInt(x);
+            console.log(total);
+            document.getElementById('t').innerHTML = total;
+            document.getElementById('ta').style.display = 'block';
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="product">
+        <input type="button" value="pen" onclick="getpen()">
+        <input type="button" value="trimmer" onclick="gettrimmer()">
+    </div>
+
+
+    <div id="item"></div>
+    <div id="item1"></div>
+
+    <div id="item2"></div>
+    <div id="save">
+        <input type="button" value="save" onclick="display()">
+    </div>
+    <table id="ta" style="display: none">
+        <tr>
+            <th>total: </th>
+            <td id="t"></td>
+
+        </tr>
+
+    </table>
+
+</body>
+
+</html

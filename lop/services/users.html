@@ -1,0 +1,114 @@
+<html>
+
+<head>
+    <title>
+        Users Page
+    </title>
+    <script type="text/javascript">
+        const getUsers = () => {
+            const _url = 'http://localhost:1269/users';
+            fetch(_url, {
+                    headers: {
+                        'username': 'tech',
+                        'password': 'tech'
+                    }
+                })
+                .then(res => res.json())
+                .then(users => {
+                    createTable(users);
+
+                })
+
+            document.getElementById('users').style.display = 'block';
+            document.getElementById('projects').style.display = 'none';
+        }
+        const getProjects = () => {
+            const _url = 'http://localhost:1269/projects';
+            fetch(_url, {
+                    headers: {
+                        'username': 'tech',
+                        'password': 'tech'
+                    }
+                })
+                .then(res => res.json())
+                .then(projects => {
+
+                    createtable(projects);
+                    cd(projects);
+
+                })
+
+            document.getElementById('projects').style.display = 'block';
+            document.getElementById('users').style.display = 'none';
+        }
+
+
+        const createTable = (data) => {
+            let rows = '';
+            data.users.forEach(u => {
+                rows += `<tr>
+                            <td>${u.id}</td>
+                            <td>${u.name}</td>
+                            <td>${u.email}</td>
+                        </tr>`
+            });
+            const _table = `<table>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                </tr>
+                                ${rows}
+                            </table>`
+            document.getElementById('users').innerHTML = _table;
+        }
+        const createtable = (data) => {
+            let rows = '';
+            data.projects.forEach(p => {
+                rows += `<tr>
+                            <td>${p.id}</td>
+                            <td>${p.name}</td>
+                            <td>${p.description}</td>
+                        </tr>`
+            });
+            const _table = `<table>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                                ${rows}
+                            </table>`
+            document.getElementById('projects').innerHTML = _table;
+        }
+
+        function cd(data) {
+            let row = '';
+            data.projects.forEach((e) => {
+                row += `<option value=${e.name}>${e.name}></option>`;
+            });
+
+            document.getElementById('pro').innerHTML = row;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="b">
+        <input type="button" value="users" onclick="getUsers()"><br>
+        <input type="button" value="projects" onclick="getProjects()">
+    </div>
+    <div id="users" display="display:none">
+
+    </div>
+    <div id="projects" display="display:none">
+
+    </div>
+    <select id="pro">
+        
+            </select>
+
+
+</body>
+
+</html>

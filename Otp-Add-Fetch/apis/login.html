@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <title>login</title>
+    <script>
+        function getotp() {
+            const date = new Date();
+            const hour = date.getHours()
+            const min = date.getMinutes()
+            const sec = date.getSeconds()
+            console.log(hour + ":" + min + ":" + sec)
+            document.getElementById('enterotp').style.display = 'block';
+            document.getElementById('_otp').style.display = 'none';
+            let email = document.getElementById('email').value;
+
+
+            var digits = '0123456789';
+            let OTP = '';
+            for (let i = 0; i < 4; i++) {
+                OTP += digits[Math.floor(Math.random() * 10)];
+            }
+            saveUsersDetails(email, OTP);
+
+        }
+
+        function saveUsersDetails(email, otp) {
+            let _url = 'http://localhost:46688/auth/register';
+            fetch(_url, {
+                    method: 'POST',
+                    headers: {
+                        'username': 'tech',
+                        'password': 'tech',
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        otp: otp
+                    })
+                })
+                .then(res => res.json())
+                .then((res) => {
+                    let _url = 'http://localhost:46688/email';
+                    fetch(_url, {
+                        method: 'POST',
+                        headers: {
+                            'username': 'tech',
+                            'password': 'tech',
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email: email,
+                            otp: otp
+                        })
+                    })
+                })
+        }
+
+        function verifyOtp() {
+            let otp = document.getElementById('otp').value;
+            let email = document.getElementById('email').value;
+            console.log(otp + email)
+            let _url = 'http://localhost:46688/auth/verifyOtp';
+            fetch(_url, {
+                    method: 'POST',
+                    headers: {
+                        'username': 'tech',
+                        'password': 'tech',
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        otp: otp
+                    })
+                })
+                .then(res => res.json())
+                .then((res) => {
+                    console.log(res)
+                    if (res.message == "success") {
+                        alert("valid otp");
+                    } else {
+                        alert("ivalid otp");
+                    }
+                })
+        }
+    </script>
+</head>
+
+<body>
+    <div id="_otp" style="display: block">
+
+        <tr>
+            <td>
+                <input type="email" placeholder="enter emailid" id="email"><br>
+
+                <input type="button" value="click here to login" onclick="getotp()">
+            </td>
+        </tr>
+    </div>
+    <div id="enterotp" style="display: none">
+        <tr>
+            <td>
+                <input type="text" placeholder="enter otp" id="otp"><br>
+
+                <input type="button" value="verifyOtp" onclick="verifyOtp()">
+            </td>
+        </tr>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+package Abstract.example;
+
+public class Tester {
+	
+		public static void main(String[] args) {
+			Flyer e=new Bird();		
+			((Flyer) e).fly();
+			Model e1= new jalebibai();
+		}
+
+	}

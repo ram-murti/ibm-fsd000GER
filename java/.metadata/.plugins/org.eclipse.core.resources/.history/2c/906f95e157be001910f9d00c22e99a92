@@ -1,0 +1,17 @@
+package Common.example;
+
+public class Tester {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Person Data= new Person();
+try {
+	Data.checkName("Ram", "Murti");
+	System.out.println(Data.getFname()+" "+Data.getLname());
+} catch (Checkfnamelname e) {
+	// TODO Auto-generated catch block
+
+}
+	}
+
+}

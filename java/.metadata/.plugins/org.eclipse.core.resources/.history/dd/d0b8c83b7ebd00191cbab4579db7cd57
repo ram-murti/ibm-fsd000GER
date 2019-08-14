@@ -1,0 +1,22 @@
+package Abstract.example;
+
+public class Bird extends Flyer{
+
+	@Override
+	public void takeoff() {
+		System.out.println("Rohit");
+	}
+
+	@Override
+	public void fly() {
+		// TODO Auto-generated method stub
+		System.out.println("Ram");
+	}
+
+	@Override
+	public void land() {
+		// TODO Auto-generated method stub
+		System.out.println("Mohit");
+	}
+
+}

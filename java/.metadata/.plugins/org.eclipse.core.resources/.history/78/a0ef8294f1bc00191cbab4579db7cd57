@@ -1,0 +1,14 @@
+package inheritance.example;
+
+public class Product {
+
+	public int currentRate;
+	
+	private static int item;
+	
+	
+public void inproduct() {
+	item++;
+	System.out.println("no of item:"+item);
+}
+}

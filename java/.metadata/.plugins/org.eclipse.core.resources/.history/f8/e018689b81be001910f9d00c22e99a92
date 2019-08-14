@@ -1,0 +1,14 @@
+package Common.example;
+
+import java.util.Scanner;
+import java.util.Set;
+
+public class CollectionDemo {
+	static Scanner sc= new Scanner(System.in);
+private String str[];
+private Set set;
+public CollectionDemo() {
+	System.out.println("Number of Element in the Rray:");
+	str=new String[sc.Nextint()];
+}
+}

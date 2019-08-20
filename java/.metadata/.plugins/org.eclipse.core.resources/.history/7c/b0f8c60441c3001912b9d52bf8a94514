@@ -1,0 +1,16 @@
+package Synchronised;
+
+public class MyStack {
+private int index =1;
+static int Max=26;
+private char[] info=new char[26];
+public synchronized void push(char item) throws InterruptedException{
+	if(index==Max) {
+		System.out.println("overflow");
+		wait();
+	}
+	info[index++]=item;
+	notifyAll();
+
+}
+}

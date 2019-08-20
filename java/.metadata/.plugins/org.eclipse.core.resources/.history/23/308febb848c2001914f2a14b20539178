@@ -1,0 +1,17 @@
+package Listexample;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Deck {
+public static void main(String[] args) {
+	List<Deck> d=new ArrayList<Deck>();
+	for(Suit s:Suit.values()) {
+		for(Rank r:Rank.values()) {
+			Deck.add(new Deck(s,r));
+		}
+	}
+}
+
+}

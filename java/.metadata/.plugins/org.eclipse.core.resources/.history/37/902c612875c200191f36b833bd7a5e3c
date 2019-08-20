@@ -1,0 +1,10 @@
+package jdbc_Demo;
+
+import java.util.Properties;
+
+public class JdbcDemo1 {
+private static Properties properties=null;
+static {
+	properties=new Properties();
+}
+}

@@ -1,0 +1,15 @@
+package Listexample;
+
+public class Student implements Comparable<Object> {
+
+	private String Fname;
+	private String Lname;
+	private double GPA;
+	
+	@Override
+	public int compareTo(Object arg0) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -1,7 +1,0 @@
-package Abstract.example;
-
-public abstract class Model {
-public abstract void isGreater();
-public abstract void isLesser();
-public abstract void isEquals();
-}

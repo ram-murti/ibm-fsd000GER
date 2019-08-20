@@ -1,8 +1,0 @@
-package inheritance.example;
-
-public class Employee {
-
-	public int id;
-	public String fname;
-	public  String lname;
-}

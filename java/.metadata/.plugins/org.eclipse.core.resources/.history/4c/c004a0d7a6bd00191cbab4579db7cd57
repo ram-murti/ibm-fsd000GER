@@ -1,9 +1,0 @@
-package Abstract.example;
-
-public class Tester1 {
-public static void main(String[] args) {
-	int arr[]= {
-			100,1,-20,30,0
-	};
-}
-}

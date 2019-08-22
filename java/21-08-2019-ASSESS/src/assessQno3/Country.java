@@ -32,14 +32,17 @@ static boolean p=false;
 	public int compareTo(Object c) {
 		// TODO Auto-generated method stub
 		Country co=(Country)c;
-		int compare=this.getCountryName().compareTo(co.countryName);
+		int compare=this.getCountryName().charAt(0)-co.countryName.charAt(0);
+	
+	
+		
 		if(compare==0) {
 			return 0;
-		}else if(compare==1) {
+		}else if(compare>0) {
 			
-		return -1;}
+		return 1;}
 		else
-			return 1;
+			return -1;
 	}
 
 	public String getCountryName() {
@@ -51,30 +54,29 @@ static boolean p=false;
 		this.countryName = countryName;
 	}
 	@SuppressWarnings("unchecked")
-	public void AddStateList(String name,String countryname) {
+	public List AddStateList(String name,String countryname) {
 		 for(Country emp:outer) {
-			System.out.println(countryname.equalsIgnoreCase(emp.getCountryName()));
+			
 				if(countryname.equalsIgnoreCase(emp.getCountryName())) {
 					inner=emp.state;
 					 p=countryname.equalsIgnoreCase(emp.getCountryName());
-					System.out.println("same");
+					
 					break;
 				}
 			}
 		 if(p==true) {
-			 System.out.println("true loop");
 		 inner.add(new State(name));
 		 Collections.sort(inner);
+	
 		 p=false;
 		 }
 		 else {
 			 List<State> inner1 = new ArrayList<State>();
-			 System.out.println(inner.toString());
 			 inner1.add(new State(name));
 		 outer.add(new Country(countryname,inner1));}
 		 Collections.sort(outer);
-	   System.out.println(outer.toString());
 	   
+	   return outer;
 	}
 
 	
@@ -91,7 +93,7 @@ static boolean p=false;
 
 	@Override
 	public String toString() {
-		return "Country [countryName=" + countryName + ", state=" + state + "]";
+		return countryName+"-"+state+"\n";
 	}
 	
 }

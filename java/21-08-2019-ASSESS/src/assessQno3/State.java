@@ -5,7 +5,7 @@ private String name;
 
 @Override
 public String toString() {
-	return "State [name=" + name + "]";
+	return   name ;
 }
 
 public State() {
@@ -28,10 +28,10 @@ public void setName(String name) {
 public int compareTo(Object c) {
 	// TODO Auto-generated method stub
 	State co=(State)c;
-	int compare=this.getName().compareTo(co.name);
+	int compare=this.getName().charAt(0)-co.name.charAt(0);
 	if(compare==0) {
 		return 0;
-	}else if(compare==1) {
+	}else if(compare>0) {
 		
 	return 1;}
 	else

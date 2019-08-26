@@ -25,7 +25,13 @@ public class EmployeeServiceImp implements EmployeeService {
 
 	@Override
 	public Employee getEmployeeById(int id) {
+               
+		return dao.getemployeeId(id);
+	}
 
+	@Override
+	public Employee DeleteEmployByID(int id) {
+		dao.DeleteById(id);
 		return null;
 	}
 }

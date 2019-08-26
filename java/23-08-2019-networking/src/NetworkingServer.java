@@ -69,9 +69,13 @@ public class NetworkingServer {
 				String ansMsg = "Hello, " + fact;
 				pw.println(ansMsg);
 				Employee s2 = s1.getEmployeeById(Integer.parseInt(msgFromClient[1]));
-				System.out.println(s2.getId() + " " + s2.getFname() + " " + s2.getLname());
-				pw.println(s2.getId() + " " + s2.getFname() + " " + s2.getLname());
+				//System.out.println(s2.getId() + " " + s2.getFname() + " " + s2.getLname());
+				//pw.println(s2.getId() + " " + s2.getFname() + " " + s2.getLname());
 				System.out.println("hi");
+				//String stringtemp = s2.toString();
+				//s2 = s2.getObject(stringtemp);
+				//System.out.println(s2.getFname());
+				pw.println(s2);
 				// Send response to the client
 
 				// Close sockets

@@ -1,12 +1,14 @@
 package jdbc;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeTester {
 	private static Scanner scanner=new Scanner(System.in);
-	public static void main(String[] args) throws SQLException {
+	public static Employee empUtil = new Employee();
+	public static void main(String[] args) throws SQLException, ClassNotFoundException, IOException {
 		EmployeeService service=new EmployeeServiceImp();
 		int choice=0;
 		do {
@@ -35,8 +37,13 @@ public class EmployeeTester {
 				}
 				break;
 			case 0:
-				System.out.println("Bye!");
-				System.exit(0);
+				Employee emp = service.getEmployeeById(2);
+				System.out.println(emp);
+				//String  string = emp.toString(emp);
+				String string = emp.toString();
+				System.out.println(string+"in case 0"); 
+				Employee employee = empUtil.getObject(string);
+				System.out.println(employee.getFname());
 				break;
 
 			default:

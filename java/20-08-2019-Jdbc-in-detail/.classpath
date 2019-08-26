@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Users/B4ibmjava07/Downloads/hsqldb-2.5.0/hsqldb/lib/hsqldb.jar"/>
 	<classpathentry kind="lib" path="C:/Users/B4ibmjava07/Downloads/mysql-connector-java-8.0.17/mysql-connector-java-8.0.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/B4ibmjava07/Downloads/rs2xml.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

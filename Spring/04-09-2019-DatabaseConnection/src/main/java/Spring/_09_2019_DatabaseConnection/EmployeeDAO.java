@@ -2,13 +2,16 @@ package Spring._09_2019_DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 public class EmployeeDAO {
-	
 	
 	private DataSource dataSource;
 	
@@ -43,6 +46,30 @@ public class EmployeeDAO {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
+	}
+	public void viewEmployee() throws SQLException {
+		Connection connection;
+		try {
+			connection = dataSource.getConnection();
+			PreparedStatement pst=connection.prepareStatement("select * from  employe");
+                ResultSet resultset=pst.executeQuery();
+                while(resultset.next()) {
+                	System.out.println("Id:"+resultset.getInt(1)+" Name:"+resultset.getString(2));
+                }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void getEmployeById(int id) throws SQLException {
+		Connection connection=dataSource.getConnection();
+		PreparedStatement pst=connection.prepareStatement("select *from employe where id=?");
+		pst.setInt(1, id);
+		ResultSet resultset=pst.executeQuery();
+		  while(resultset.next()) {
+          	System.out.println("Id:"+resultset.getInt(1)+" Name:"+resultset.getString(2));
+          }
+
 	}
 	
 	

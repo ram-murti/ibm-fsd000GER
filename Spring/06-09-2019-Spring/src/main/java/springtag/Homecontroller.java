@@ -14,16 +14,5 @@ public class Homecontroller {
 	public String homePage() {
 		return"main-menu";
 	}
-	@GetMapping("/sForm")
-	public String studentForm(Model model) {
-		Student student=new Student();
-		model.addAttribute("student",student);
-		return"sForm";
-	}
 	
-	@PostMapping("/Show")
-	public String showForm(@ModelAttribute("student") Student student, Model themodel ) {
-		themodel.addAttribute("student", student);
-		return"Show";
-	}
 }

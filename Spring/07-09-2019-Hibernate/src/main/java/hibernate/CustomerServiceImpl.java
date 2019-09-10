@@ -34,6 +34,16 @@ public class CustomerServiceImpl implements CustomerService {
 		dao.updateEmploy(id, firstName, lastName, email);
 		
 	}
+	public List<Customer> searchAllCustomerByfname(String fname) {
+		// TODO Auto-generated method stub
+		List<Customer> allCustomer=dao.searchAllCustomerByfname(fname);
+		return allCustomer;
+	}
+	public List<Customer> searchAllCustomerBylName(String lname) {
+		// TODO Auto-generated method stub
+		List<Customer> allCustomer=dao.searchAllCustomerBylName(lname);
+		return allCustomer;
+	}
 	
 
 }

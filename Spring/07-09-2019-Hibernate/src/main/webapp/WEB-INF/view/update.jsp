@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form:form action="update" modelAttribute="customer">
+<form:form action="update?id=${customer.id}" modelAttribute="customer">
 first name<form:input path="firstName" /><br/>
 last name<form:input path="lastName" /><br/>
 email<form:input path="email"/><br>

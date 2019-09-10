@@ -3,6 +3,8 @@ package hibernate;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -63,13 +65,27 @@ public class CustomerController {
 			
 		}
 		@PostMapping("/update")
-		public String updateById(Model themodel,@ModelAttribute("customer") Customer customer){
-		
-			customerService.updateEmploy(customer.getId(), customer.getFirstName(), customer.getLastName(),customer.getEmail());
-			
+		public String updateById(Model themodel,@ModelAttribute("customer") Customer customer,@RequestParam("id") String Param){
+		int id=Integer.parseInt(Param);
+		System.out.println(id);
+			customerService.updateEmploy(id, customer.getFirstName(), customer.getLastName(),customer.getEmail());
 		return "redirect:/customer/viewAll";
 		}
-		
-		
+		@GetMapping("/viewAllfName")
+		public String viewAllByfname(Model themodel){
+			Customer customer=new Customer();
+	 		themodel.addAttribute("customer",customer);
+			// List<Customer> allCustomer=customerService.searchAllCustomerByfname(fname);
+			//  themodel.addAttribute("allCustomer",allCustomer);
+			  return "sForm";
+		}
+		@GetMapping("/viewAlllName")
+		public String viewAllBylname(Model themodel){
+			Customer customer=new Customer();
+	 		themodel.addAttribute("customer",customer);
+			// List<Customer> allCustomer=customerService.searchAllCustomerBylName(lname);
+			//  themodel.addAttribute("allCustomer",allCustomer);
+			  return "sForm";
+		}
 		
 }

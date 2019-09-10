@@ -8,4 +8,6 @@ public interface CustomerService {
   	public List<Customer> viewAllCustomer() ;
   	public void deleteCustomer(int id);
   	public void updateEmploy(int id,String firstName,String lastName,String email) ;
+  	public List<Customer> searchAllCustomerByfname(String fname);
+	public List<Customer> searchAllCustomerBylName(String lname);
 }

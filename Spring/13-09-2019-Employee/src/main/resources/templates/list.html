@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+
+<title>Employee List</title>
+</head>
+
+<body>
+<a th:href="@{/logout}" class="btn btn-primary btn-sm mb-3">logout</a>
+
+	<div class="container">
+
+		<h3>Employee List</h3>
+		<hr>
+
+		<!-- Add a button -->
+		<a th:href="@{/}" class="btn btn-primary btn-sm mb-3"> Show
+			Employee </a> <a th:href="@{/loginp}" class="btn btn-primary btn-sm mb-3">
+			Show permanentEmployee </a> <a th:href="@{/loginc}"
+			class="btn btn-primary btn-sm mb-3"> Show contractualEmployee </a>
+
+		<div th:if="${socc}">
+			<table class="table table-bordered table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Id</th>
+						<th>FirstName</th>
+						<th>LastName</th>
+						<th>Email</th>
+
+
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="socc : ${socc}">
+						<td th:text="${socc.id}" />
+						<td th:text="${socc.first_name}" />
+						<td th:text="${socc.last_name}" />
+						<td th:text="${socc.email}" />
+
+
+
+
+						<td><div class="row">
+								<div class="col-small">
+									<form action="#" th:action="@{/gradients/showFormForUpdate}"
+										method="POST">
+										<input type="hidden" name="employeeId" th:value="${socc.id}" />
+										<button type="submit" class="btn btn-info btn-sm ml-3 mr-1">update</button>
+									</form>
+								</div>
+							</div></td>
+						<td><div class="row">
+
+								<div class="col-small">
+									<form action="#" th:action="@{/gradients/showAll?}"
+										method="GET">
+										<input type="hidden" name="id" th:value="${socc.id}" />
+										<button type="submit" class="btn btn-info btn-sm ml-3 mr-1">view</button>
+									</form>
+								</div>
+							</div></td>
+						<td><div class="row">
+
+								<div class="col-small">
+									<form action="#" th:action="@{/gradients/showFormForUpdate}"
+										method="POST">
+										<input type="hidden" name="employeeId" th:value="${socc.id}" />
+										<button type="submit" class="btn btn-info btn-sm ml-3 mr-1">Delete</button>
+									</form>
+								</div>
+							</div></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div th:if=${soccp}>
+
+			<table class="table table-bordered table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Id</th>
+						<th>FirstName</th>
+						<th>LastName</th>
+						<th>Email</th>
+						<th>commission</th>
+						<th>salary</th>
+
+
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="socc : ${soccp}">
+						<td th:text="${socc.id}" />
+						<td th:text="${socc.first_name}" />
+						<td th:text="${socc.last_name}" />
+						<td th:text="${socc.email}" />
+						<td th:text="${socc.salary}" />
+                         <td th:text="${socc.commission}" />
+                           
+
+
+						<td><div class="row">
+								<div class="col-small">
+									<form action="#" th:action="@{/gradients/showFormForUpdate}"
+										method="POST">
+										<input type="hidden" name="employeeId" th:value="${socc.id}" />
+										<button type="submit" class="btn btn-info btn-sm ml-3 mr-1">update</button>
+									</form>
+								</div>
+							</div></td>
+						<td><div class="row">
+
+								<div class="col-small">
+									<form action="#" th:action="@{/gradients/showAll?}"
+										method="GET">
+										<input type="hidden" name="id" th:value="${socc.id}" />
+										<button type="submit" class="btn btn-info btn-sm ml-3 mr-1">view</button>
+									</form>
+								</div>
+							</div></td>
+						<td><div class="row">
+
+								<div class="col-small">
+									<form action="#" th:action="@{/gradients/showFormForUpdate}"
+										method="POST">
+										<input type="hidden" name="employeeId" th:value="${socc.id}" />
+										<button type="submit" class="btn btn-info btn-sm ml-3 mr-1">Delete</button>
+									</form>
+								</div>
+							</div></td>
+					</tr>
+				</tbody>
+			</table>
+
+
+		</div>
+		<div th:if=${soccc}>
+			<table class="table table-bordered table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Id</th>
+						<th>FirstName</th>
+						<th>LastName</th>
+						<th>Email</th>
+						<th>ContractualPeriod</th>
+						<th>paperhour</th>
+
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="socc : ${soccc}">
+						<td th:text="${socc.id}" />
+						<td th:text="${socc.first_name}" />
+						<td th:text="${socc.last_name}" />
+						<td th:text="${socc.email}" />
+						<td th:text="${socc.contractualperiod}" />
+						<td th:text="${socc.paperhour}" />
+
+
+
+						<td><div class="row">
+								<div class="col-small">
+									<form action="#" th:action="@{/gradients/showFormForUpdate}"
+										method="POST">
+										<input type="hidden" name="employeeId" th:value="${socc.id}" />
+										<button type="submit" class="btn btn-info btn-sm ml-3 mr-1">update</button>
+									</form>
+								</div>
+							</div></td>
+						<td><div class="row">
+
+								<div class="col-small">
+									<form action="#" th:action="@{/gradients/showAll?}"
+										method="GET">
+										<input type="hidden" name="id" th:value="${socc.id}" />
+										<button type="submit" class="btn btn-info btn-sm ml-3 mr-1">view</button>
+									</form>
+								</div>
+							</div></td>
+						<td><div class="row">
+
+								<div class="col-small">
+									<form action="#" th:action="@{/gradients/showFormForUpdate}"
+										method="POST">
+										<input type="hidden" name="employeeId" th:value="${socc.id}" />
+										<button type="submit" class="btn btn-info btn-sm ml-3 mr-1">Delete</button>
+									</form>
+								</div>
+							</div></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

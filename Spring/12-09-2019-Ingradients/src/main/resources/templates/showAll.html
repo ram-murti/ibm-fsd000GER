@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+
+<title>Receipe Directory</title>
+</head>
+<body>
+	<div class="container">
+
+		<h1 th:text="${receipe.name}" />
+		<h4>Difficulties:</h4>
+		<h7 th:text="${receipe.difficulties}" />
+
+		<h4>ServingTime in minutes:</h4>
+		<h7 th:text="${receipe.servingtime}" />
+		<h4>CookingTime in minutes:</h4>
+		<h7 th:text="${receipe.cooktime}" />
+
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>IngradientsNames</th>
+					<th>Amount</th>
+					<th>Description</th>
+
+				</tr>
+			</thead>
+
+			<tr th:each="socc : ${ingradient}">
+				<td th:text="${socc.name}" />
+				<td th:text="${socc.amount}" />
+				<td th:text="${socc.description}" />
+			</tr>
+		</table>
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Note</th>
+
+
+				</tr>
+			</thead>
+
+			<tr th:each="socc : ${note}">
+				<td th:text="${socc.recipie_note}" />
+			</tr>
+		</table>
+
+
+
+	</div>
+
+
+
+</body>
+</html>

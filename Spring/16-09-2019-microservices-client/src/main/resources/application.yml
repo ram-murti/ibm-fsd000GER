@@ -1,9 +1,9 @@
 
 server:
-  port: 8010
+  port: 82671
 spring:
   application:
-    name: my-client
+    name: my-clent
   cloud:
     config:
       server:

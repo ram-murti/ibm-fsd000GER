@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+
+<title>Save League</title>
+</head>
+
+<body>
+
+	<div class="container">
+
+		<h3>Employee Details</h3>
+		<hr>
+
+		<p class="h4 mb-4">Save Employee</p>
+		<form action="#" th:action="@{/cemployee}" th:object="${socc2}"
+			method="POST">
+
+		<div th:if="${socc}">
+		
+			<label for="first_name">firstName</label>
+			
+			 <input type="text"
+				 class="form-control mb-4 col-4"
+				placeholder="first_name" th:field=*{first_name}> 
+				<label for="last_name">lastName</label>
+
+			<input type="text" 
+				class="form-control mb-4 col-4" placeholder="last_name" th:field="*{last_name}" > <label
+				for="email">Email</label> <input type="email" th:field="*{email}" 
+				class="form-control mb-4 col-4" placeholder="email" >
+													 <label for="paperhour">paperhour</label>
+				
+				<input type="text" th:field="*{paperhour}" 
+				class="form-control mb-4 col-4" placeholder="paperhour">
+					
+									 <label for="contractualperiod">contractualperiod</label>
+				
+			<input type="text" th:field="*{contractualperiod}" 
+				class="form-control mb-4 col-4" placeholder="contractualperiod">
+	<button type="submit" value="save">save</button>
+</div>
+		</form>
+
+		<hr>
+		<a th:href="@{/}">Back to ShowEmployee</a>
+
+	</div>
+</body>
+
+</html>

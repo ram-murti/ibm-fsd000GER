@@ -6,9 +6,7 @@ import java.util.UUID;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 
 import com.example.demo.UserDto;
 import com.example.demo.entity.UserEntity;
@@ -46,5 +44,8 @@ public class UserServiceInterfaceImpl implements UserServiceInterface {
 
 		return tempDto;
 	}
+
+	
+	
 
 }

@@ -39,9 +39,10 @@ public class UserServiceInterfaceImpl implements UserServiceInterface {
 	public UserDto findById(Long id) {
 		// TODO Auto-generated method stub
 		Optional<UserEntity> userEntity=userRepo.findById(id);
+		UserEntity user =userEntity.get();
 		ModelMapper mapper = new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-		UserDto tempDto = mapper.map(userEntity, UserDto.class);
+		UserDto tempDto = mapper.map(user, UserDto.class);
 
 		return tempDto;
 	}

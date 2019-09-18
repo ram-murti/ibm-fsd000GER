@@ -15,7 +15,7 @@ import com.example.demo.CreateUserRequestModel;
 
 
 
-@FeignClient(name = "user-wa")
+@FeignClient(name = "user-wa",url="http://localhost:8010")
 public interface UserServiceClient {
 
 	 @RequestMapping(value = "/{id}", method = RequestMethod.GET)

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+			<th>Uid</th>
+				<th>firstname</th>
+				<th>lastname</th>	
+				<th>Email</th>	
+				
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="abc : ${socc}">
+							<td th:text="${abc.body.user_id}" />	
+				<td th:text="${abc.body.fname}" />	
+				<td th:text="${abc.body.lname}" />	
+				<td th:text="${abc.body.email}" />	
+				
+				
+			</tr>
+		</tbody>		
+	</table>
+</body>
+</html>

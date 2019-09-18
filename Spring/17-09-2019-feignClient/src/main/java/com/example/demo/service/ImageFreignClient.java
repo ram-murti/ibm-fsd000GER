@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@FeignClient(name = "image-service")
+@FeignClient(name = "image-service",url="http://localhost:8761/eureka")
 
 public interface ImageFreignClient {
 

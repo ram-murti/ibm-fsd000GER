@@ -48,7 +48,7 @@ public class UserController {
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		UserDto temp = userService.findById(id);
 		CreateUserResponseModel model = mapper.map(temp, CreateUserResponseModel.class);
-		return new ResponseEntity<CreateUserResponseModel>(model, HttpStatus.CREATED);
+		return new ResponseEntity<CreateUserResponseModel>(model, HttpStatus.FOUND);
 
 	}
    /*  @DeleteMapping("/{id}")

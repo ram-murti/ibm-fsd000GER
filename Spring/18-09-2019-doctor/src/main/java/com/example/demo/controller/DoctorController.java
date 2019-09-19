@@ -14,13 +14,13 @@ public class DoctorController {
 	@Autowired
 	DoctorRepository doctorRepository;
 	
-	@GetMapping("/patients")
-	public ResponseEntity<?> getPatients(){
+	@GetMapping("/doctors")
+	public ResponseEntity<?> getDoctors(){
 		return ResponseEntity.ok(doctorRepository.findAll());
 	}
 	
-	@GetMapping("/patients/{diseases}")
-	public ResponseEntity<?> getPatientsByDisease(@PathVariable("diseases") String  disease){
+	@GetMapping("/doctors/{diseases}")
+	public ResponseEntity<?> getDoctorsByDisease(@PathVariable("diseases") String  disease){
 		return ResponseEntity.ok(doctorRepository.findByDoctorSpeciality(disease));
 	}
 	

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="styles.css" media="all" />
+   
+    <link rel="stylesheet" type="text/css" href="demo.css" media="all" />
+    <style type="text/css">tr th{
+	font-weight:bold;
+    }
+tr th, tr td{
+	padding:5px;
+}
+th{
+    border: 5px solid #C1DAD7;
+}
+td{
+	border: 5px solid #C1DAD7;
+}
+.c1{
+	background:#4b8c74;
+}
+.c2{
+	background:#74c476;
+}
+.c3{
+	background:#a4e56d;
+}
+.c4{
+	background:#cffc83;
+}</style>
+</head>
+<body>
+<div th:if="${socc}">
+<table>
+  <tr>
+    <th class="c1">Associate_id</th>
+    <th class="c2">Associate_first_name</th>
+    <th class="c3">Associate_last_name</th>
+    <th class="c4">Associate_emailId</th>
+    <th class="c5">Associate_number</th>
+    
+  </tr>
+  <tr th:each="so : ${socc}">
+    <td class="c1" th:text=${so.body.associateId}/>
+    <td class="c2" th:text=${so.body.associateFirstName}/>
+    <td class="c3" th:text=${so.body.associateLastName}/>
+    <td class="c4" th:text=${so.body.email}/>
+    <td class="c5" th:text=${so.body.associateMobilenumber}/>
+  </tr>
+  </table>
+</div>
+<div th:if="${asso}">
+<table>
+  <tr>
+    <th class="c1">Associate_id</th>
+    <th class="c2">Associate_first_name</th>
+    <th class="c3">Associate_last_name</th>
+    <th class="c4">Associate_emailId</th>
+    <th class="c5">Associate_number</th>
+    
+  </tr>
+  <tr th:each="so : ${asso.body}">
+    <td class="c1" th:text=${so.associateId}/>
+    <td class="c2" th:text=${so.associateFirstName}/>
+    <td class="c3" th:text=${so.associateLastName}/>
+    <td class="c4" th:text=${so.email}/>
+    <td class="c4" th:text=${so.associateMobilenumber}/>
+  </tr>
+  </table>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+

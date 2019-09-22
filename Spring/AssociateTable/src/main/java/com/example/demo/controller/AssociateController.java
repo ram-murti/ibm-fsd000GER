@@ -37,8 +37,8 @@ public class AssociateController {
 		return new ResponseEntity<CreateUserResponseModel>(model, HttpStatus.CREATED);
 
 	}
-	@GetMapping("/firstname/{firstname}")
-	public List<CreateUserResponseModel> findAssociateDetailByFirstName(@PathVariable("firstname") String fname) {
+	@GetMapping("/fname/{firstname}")
+	public ResponseEntity<List<CreateUserResponseModel>> findAssociateDetailByFirstName(@PathVariable("firstname") String fname) {
 		ModelMapper mapper = new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		List<AssociateDto> temp=associateService.findByFirstName(fname);
@@ -48,11 +48,12 @@ public class AssociateController {
 			CreateUserResponseModel model1=mapper.map(dto,CreateUserResponseModel.class);
 			model.add(model1);
 		}
-		return model;
+		return new ResponseEntity<List<CreateUserResponseModel>>(model, HttpStatus.CREATED);
+
 
 	}
-	@GetMapping("/lastname/{lastname}")
-	public List<CreateUserResponseModel> findAssociateDetailByLastName(@PathVariable("lastname") String lname) {
+	@GetMapping("/lname/{lastname}")
+	public ResponseEntity<List<CreateUserResponseModel>> findAssociateDetailByLastName(@PathVariable("lastname") String lname) {
 		ModelMapper mapper = new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		List<AssociateDto> temp=associateService.findByLastName(lname);
@@ -62,48 +63,49 @@ public class AssociateController {
 			CreateUserResponseModel model1=mapper.map(dto,CreateUserResponseModel.class);
 			model.add(model1);
 		}
-		return model;
+		return new ResponseEntity<List<CreateUserResponseModel>>(model, HttpStatus.CREATED);
 
 	}
-	@GetMapping("/first/lastname/{firstname}/{lastname}")
-	public CreateUserResponseModel findAssociateDetailByLastNameAndLastName(@PathVariable("lastname") String lname,@PathVariable("firstname") String fname) {
+	@GetMapping("/fname/lname/{firstname}/{lastname}")
+	public ResponseEntity<CreateUserResponseModel> findAssociateDetailByLastNameAndLastName(@PathVariable("lastname") String lname,@PathVariable("firstname") String fname) {
 		ModelMapper mapper = new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
 		AssociateDto dto=associateService.findByFirstNameAndLastName(fname, lname);
 		CreateUserResponseModel model = mapper.map(dto, CreateUserResponseModel.class);
-   return model;
+		return new ResponseEntity<CreateUserResponseModel>(model, HttpStatus.CREATED);
+
 	}
 	@GetMapping("/email/{email}")
-	public CreateUserResponseModel findAssociateDetailByEmail(@PathVariable("email") String email) {
+	public ResponseEntity<CreateUserResponseModel> findAssociateDetailByEmail(@PathVariable("email") String email) {
 		ModelMapper mapper = new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
 		AssociateDto dto=associateService.findByEmail(email);
 		CreateUserResponseModel model = mapper.map(dto, CreateUserResponseModel.class);
-   return model;
+		return new ResponseEntity<CreateUserResponseModel>(model, HttpStatus.CREATED);
 	}
-	@GetMapping("/mobilenumber/{number}")
-	public CreateUserResponseModel findAssociateDetailByNumber(@PathVariable("number") String number1) {
+	@GetMapping("/number/{number}")
+	public ResponseEntity<CreateUserResponseModel> findAssociateDetailByNumber(@PathVariable("number") String number1) {
 		ModelMapper mapper = new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
          long number=(long) Integer.parseInt(number1);
          System.out.println(number);
 		AssociateDto dto=associateService.findBymobileNumber(number);
 		CreateUserResponseModel model = mapper.map(dto, CreateUserResponseModel.class);
-   return model;
+		return new ResponseEntity<CreateUserResponseModel>(model, HttpStatus.CREATED);
 	}
 	@GetMapping("/id/{id}")
-	public CreateUserResponseModel findAssociateDetailById(@PathVariable("id") String id1) {
+	public ResponseEntity<CreateUserResponseModel> findAssociateDetailById(@PathVariable("id") String id1) {
 		ModelMapper mapper = new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
          Long id=(long) Integer.parseInt(id1);
 		AssociateDto dto=associateService.findById(id);
 		CreateUserResponseModel model = mapper.map(dto, CreateUserResponseModel.class);
-   return model;
+		return new ResponseEntity<CreateUserResponseModel>(model, HttpStatus.CREATED);
 	}
 	@PutMapping("/update/{id}")
-	public List<CreateUserResponseModel> updateUser(@RequestBody CreateUserRequestModel associateDetail,@PathVariable("id") String id1) {
+	public ResponseEntity<List<CreateUserResponseModel>> updateUser(@RequestBody CreateUserRequestModel associateDetail,@PathVariable("id") String id1) {
 		ModelMapper mapper = new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		AssociateDetail assodetail=mapper.map(associateDetail,AssociateDetail.class);
@@ -115,10 +117,10 @@ public class AssociateController {
 			CreateUserResponseModel model1=mapper.map(dto,CreateUserResponseModel.class);
 			model.add(model1);
 		}
-		return model;
+		return new ResponseEntity<List<CreateUserResponseModel>>(model, HttpStatus.CREATED);
 	}
 	@DeleteMapping("/delete/{id}")
-	public List<CreateUserResponseModel> deleteById(@PathVariable("id") String id1) {
+	public ResponseEntity<List<CreateUserResponseModel>> deleteById(@PathVariable("id") String id1) {
 		ModelMapper mapper = new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         Long id=(long) Integer.parseInt(id1);
@@ -128,6 +130,6 @@ public class AssociateController {
 			CreateUserResponseModel model1=mapper.map(dto,CreateUserResponseModel.class);
 			model.add(model1);
 		}
-		return model;
+		return new ResponseEntity<List<CreateUserResponseModel>>(model, HttpStatus.CREATED);
 	}
 }

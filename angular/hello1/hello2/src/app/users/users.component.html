@@ -1,0 +1,26 @@
+<p>users works!</p>
+<input type="button" value="Edit" (click)="redirect()" />
+<input type="button" value="Goto Query" (click)="redirectToAboutus()" />
+<fieldset>
+    <legend>One Way Binding</legend>
+    <form #addFrm="ngForm" (submit)="add(addFrm.value)">
+        <input type="text" placeholder="Id" name="Id" ngModel /> <br/>
+        <input type="text" placeholder="username" name="name" ngModel /> <br/>
+        <input type="number" placeholder="age" name="pass" ngModel /> <br/>
+        <input type="submit" value="Register" />
+    </form>
+</fieldset>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>name</th>
+        <th>pass</th>
+        <th>Edit</th>
+    </tr>
+    <tr *ngFor="let e of registerObj">
+        <td>{{e.Id}} </td>
+        <td>{{e.name}} </td>
+        <td>{{e.pass}}</td>
+        <td><input type="button" (click)="Delete(e.id)" value="Delete!" /></td>
+    </tr>
+</table>

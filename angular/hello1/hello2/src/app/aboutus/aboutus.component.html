@@ -1,0 +1,29 @@
+<p>aboutus works!</p>
+<div>
+    Id: &nbsp; {{params.id}} <br /> Name: &nbsp; {{params.name}}
+</div>
+
+<input type="button" value="Edit" (click)="redirect()" />
+<table>
+    <tr>
+        <th>Id</th>
+        <th>name</th>
+        <th>pass</th>
+        <th>Edit</th>
+    </tr>
+    <tr *ngFor="let e of users">
+        <td>{{e.Id}} </td>
+        <td>{{e.name}} </td>
+        <td>{{e.pass}}</td>
+        <td><input type="button" (click)="Delete(e.Id)" value="Delete!" /></td>
+        <td><input type="button" (click)="Edit(e.Id)" value="Edit!" /></td>
+    </tr>
+</table>
+<fieldset>
+    <legend>Two Way Binding</legend>
+    <form #registerForm="ngForm" (submit)="UpdateU()">
+        <input type="text" placeholder="Name" name="name" [(ngModel)]="Update.name" /> <br/>
+        <input type="number" placeholder="age" name="pass" [(ngModel)]="Update.pass" /> <br/>
+        <input type="submit" value="Update" />
+    </form>
+</fieldset>

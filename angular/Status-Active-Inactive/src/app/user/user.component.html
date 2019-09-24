@@ -1,0 +1,38 @@
+<p>user works!</p>
+<html>
+
+<head>
+    <title>Angular</title>
+</head>
+
+<body>
+    <table border=1>
+
+        <tr>
+            <th>A</th>
+            <td>
+                <input type="button" value="css">
+            </td>
+        </tr>
+        <tr>
+            <th>B</th>
+            <td>
+                <input type="button" value="cs">
+            </td>
+        </tr>
+        <tr>
+            <th>c</th>
+            <td>
+                <input type="button" value="c">
+            </td>
+        </tr>
+    </table>
+    <div *ngFor="let u of user" id="user">
+        {{u}}
+    </div>
+    <div *ngFor="let u of employee" id="employee">
+        {{u.id}},{{u.name}}
+    </div>
+</body>
+
+</html>

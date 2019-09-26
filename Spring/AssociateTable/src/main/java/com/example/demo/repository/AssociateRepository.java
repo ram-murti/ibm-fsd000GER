@@ -1,8 +1,7 @@
 package com.example.demo.repository;
 
 import java.util.List;
-
-import javax.validation.constraints.Email;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -16,5 +15,5 @@ public interface AssociateRepository extends JpaRepository<AssociateDetail, Long
 	public AssociateDetail findByAssociateFirstNameAndAssociateLastName(String fname,String lname);
 	public AssociateDetail findByEmail(String email);
 	public AssociateDetail findByAssociateMobilenumber(long number);
-	
+	public AssociateDetail findByAssociateId(String id);
 }

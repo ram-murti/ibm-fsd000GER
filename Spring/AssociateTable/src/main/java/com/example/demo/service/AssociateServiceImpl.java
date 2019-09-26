@@ -127,12 +127,12 @@ public class AssociateServiceImpl implements AssociateService {
 	}
 
 	@Override
-	public List<AssociateDto> updateById(AssociateDto tempDto,long id) {
+	public List<AssociateDto> updateById(AssociateDto tempDto) {
 		// TODO Auto-generated method stub
 		ModelMapper mapper = new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-		Optional<AssociateDetail> assodetail=associateRepository.findById(id);
-		AssociateDetail temp=assodetail.get();
+		String id=tempDto.getAssociateId();
+		AssociateDetail temp=associateRepository.findByAssociateId(id);
             temp.setAssociateFirstName(tempDto.getAssociateFirstName());
             temp.setAssociateLastName(tempDto.getAssociateLastName());
             temp.setEmail(tempDto.getEmail());
@@ -140,6 +140,27 @@ public class AssociateServiceImpl implements AssociateService {
     		associateRepository.save(temp);
 
 		return viewAll();
+	}
+
+	@Override
+	public List<AssociateDto> deleteByAssociateId(String id) {
+		// TODO Auto-generated method stub
+	AssociateDetail asso= associateRepository.findByAssociateId(id);
+		associateRepository.delete(asso);
+		System.out.println("deleted");
+		return viewAll();
+	}
+
+	@Override
+	public AssociateDto findByAssociateId(String id) {
+		// TODO Auto-generated method stub
+		AssociateDetail asso=associateRepository.findByAssociateId(id);
+		System.out.println("here");
+		ModelMapper mapper = new ModelMapper();
+		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+		AssociateDto assodto=mapper.map(asso,AssociateDto.class);
+System.out.println("hey");
+		return assodto;
 	}
 
 	

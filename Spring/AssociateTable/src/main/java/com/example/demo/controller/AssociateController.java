@@ -32,6 +32,7 @@ public class AssociateController {
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		AssociateDetail assodetail=mapper.map(associateDetail,AssociateDetail.class);
 		AssociateDto assodto=mapper.map(assodetail,AssociateDto.class);
+		System.out.println("here");
 		AssociateDto temp=associateService.createAssociate(assodto);
 		CreateUserResponseModel model = mapper.map(temp, CreateUserResponseModel.class);
 		return new ResponseEntity<CreateUserResponseModel>(model, HttpStatus.CREATED);
@@ -104,14 +105,13 @@ public class AssociateController {
 		CreateUserResponseModel model = mapper.map(dto, CreateUserResponseModel.class);
 		return new ResponseEntity<CreateUserResponseModel>(model, HttpStatus.CREATED);
 	}
-	@PutMapping("/update/{id}")
-	public ResponseEntity<List<CreateUserResponseModel>> updateUser(@RequestBody CreateUserRequestModel associateDetail,@PathVariable("id") String id1) {
+	@PutMapping("/update")
+	public ResponseEntity<List<CreateUserResponseModel>> updateUser(@RequestBody CreateUserResponseModel associateDetail) {
 		ModelMapper mapper = new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		AssociateDetail assodetail=mapper.map(associateDetail,AssociateDetail.class);
 		AssociateDto assodto=mapper.map(assodetail,AssociateDto.class);
-        Long id=(long) Integer.parseInt(id1);
-		List<AssociateDto> temp=associateService.updateById(assodto,id);
+		List<AssociateDto> temp=associateService.updateById(assodto);
 		List<CreateUserResponseModel> model =new ArrayList<CreateUserResponseModel>();
 		for(AssociateDto dto:temp) {
 			CreateUserResponseModel model1=mapper.map(dto,CreateUserResponseModel.class);
@@ -119,17 +119,37 @@ public class AssociateController {
 		}
 		return new ResponseEntity<List<CreateUserResponseModel>>(model, HttpStatus.CREATED);
 	}
-	@DeleteMapping("/delete/{id}")
+	@PostMapping("/delete/{id}")
 	public ResponseEntity<List<CreateUserResponseModel>> deleteById(@PathVariable("id") String id1) {
 		ModelMapper mapper = new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        Long id=(long) Integer.parseInt(id1);
-		List<AssociateDto> temp=associateService.deleteById(id);
+		List<AssociateDto> temp=associateService.deleteByAssociateId(id1);
 		List<CreateUserResponseModel> model =new ArrayList<CreateUserResponseModel>();
 		for(AssociateDto dto:temp) {
 			CreateUserResponseModel model1=mapper.map(dto,CreateUserResponseModel.class);
 			model.add(model1);
 		}
 		return new ResponseEntity<List<CreateUserResponseModel>>(model, HttpStatus.CREATED);
+	}
+	@GetMapping("/viewAll")
+	public ResponseEntity<List<CreateUserResponseModel>> findAll() {
+		ModelMapper mapper = new ModelMapper();
+		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+		List<AssociateDto> dto=associateService.viewAll();
+		List<CreateUserResponseModel> model =new ArrayList<CreateUserResponseModel>();
+		for(AssociateDto dto1:dto) {
+			CreateUserResponseModel model1=mapper.map(dto1,CreateUserResponseModel.class);
+			model.add(model1);
+		}
+		return new ResponseEntity<List<CreateUserResponseModel>>(model, HttpStatus.CREATED);
+	}
+	@GetMapping("/asso/{id}")
+	public CreateUserResponseModel findByAssociateId(@PathVariable("id") String id) {
+		ModelMapper mapper = new ModelMapper();
+		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        System.out.println(id);
+		AssociateDto dto=associateService.findByAssociateId(id);
+		CreateUserResponseModel model = mapper.map(dto, CreateUserResponseModel.class);
+		return model;
 	}
 }

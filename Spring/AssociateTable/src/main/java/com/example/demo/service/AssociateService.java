@@ -16,5 +16,8 @@ public AssociateDto findByEmail(String email);
 public AssociateDto findBymobileNumber(long number);
 public List<AssociateDto> deleteById(long id);
 public List<AssociateDto> viewAll();
-public List<AssociateDto> updateById(AssociateDto tempDto,long id);
+public List<AssociateDto> updateById(AssociateDto tempDto);
+public List<AssociateDto> deleteByAssociateId(String id);
+public AssociateDto findByAssociateId(String id);
+
 }

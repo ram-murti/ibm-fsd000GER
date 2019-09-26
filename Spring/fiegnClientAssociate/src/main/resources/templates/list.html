@@ -22,6 +22,9 @@ th{
 td{
 	border: 5px solid #C1DAD7;
 }
+a{
+	border: 5px solid #C1DAD6;
+}
 .c1{
 	background:#4b8c74;
 }
@@ -30,12 +33,19 @@ td{
 }
 .c3{
 	background:#a4e56d;
+
+}.c5{
+	background:#a4e56d;
 }
 .c4{
 	background:#cffc83;
 }</style>
 </head>
 <body>
+<a th:href="@{/Associate/showform}" class="btn btn-primary btn-sm mb-3"> Add
+			Associate </a> 
+	<a th:href="@{/logout}" class="btn btn-primary btn-sm mb-3">logout</a>
+			
 <div th:if="${socc}">
 <table>
   <tr>
@@ -43,7 +53,9 @@ td{
     <th class="c2">Associate_first_name</th>
     <th class="c3">Associate_last_name</th>
     <th class="c4">Associate_emailId</th>
-    <th class="c5">Associate_number</th>
+    <th class="c5">Associate_number</th> 
+     <th class="c5">   </th>
+    
     
   </tr>
   <tr th:each="so : ${socc}">
@@ -52,6 +64,24 @@ td{
     <td class="c3" th:text=${so.body.associateLastName}/>
     <td class="c4" th:text=${so.body.email}/>
     <td class="c5" th:text=${so.body.associateMobilenumber}/>
+    <td  class="c3"><div class="row">
+
+								<div class="col-small">
+									<form action="/Associate/delete/id" method="POST">
+									<input type="hidden" name="id" value=${so.body.associateId}>
+									<input type="submit" value="Delete" />
+									</form>
+								</div>
+							</div></td>
+	 <td  class="c3"><div class="row">
+
+								<div class="col-small">
+									<form action="/Associate/updateForm/id" method="GET">
+									<input type="hidden" name="id" th:value=${so.body.associateId}>
+									<input type="submit" value="update" />
+									</form>
+								</div>
+							</div></td>						
   </tr>
   </table>
 </div>
@@ -63,7 +93,7 @@ td{
     <th class="c3">Associate_last_name</th>
     <th class="c4">Associate_emailId</th>
     <th class="c5">Associate_number</th>
-    
+        <th class="c5">Delete</th>
   </tr>
   <tr th:each="so : ${asso.body}">
     <td class="c1" th:text=${so.associateId}/>
@@ -71,6 +101,24 @@ td{
     <td class="c3" th:text=${so.associateLastName}/>
     <td class="c4" th:text=${so.email}/>
     <td class="c4" th:text=${so.associateMobilenumber}/>
+     <td  class="c3"><div class="row">
+
+								<div class="col-small">
+									<form action="/Associate/delete/id" method="POST">
+									<input type="hidden" name="id" th:value="${so.associateId}">
+									<input type="submit" value="Delete" />
+									</form>
+								</div>
+							</div></td>
+							 <td  class="c3"><div class="row">
+
+								<div class="col-small">
+									<form action="/Associate/updateForm/id" method="GET">
+									<input type="hidden" name="id" th:value=${so.associateId}>
+									<input type="submit" value="update" />
+									</form>
+								</div>
+							</div></td>
   </tr>
   </table>
 </div>

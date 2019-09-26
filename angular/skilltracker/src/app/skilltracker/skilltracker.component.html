@@ -9,6 +9,47 @@
             <input type="text" placeholder="associateMobilenumber" name="associateMobilenumber" ngModel /> <br/>
             <input type="submit" value="Add" />
         </form>
+        <input type="button" value="ViewAll" (click)="viewAll()" />
+
     </fieldset>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>fname</th>
+            <th>lname</th>
+            <th>Email</th>
+            <th>Number</th>
+
+        </tr>
+        <tr *ngFor="let e of get">
+            <td>{{e.associateId}} </td>
+            <td>{{e.associateFirstName}} </td>
+            <td>{{e.associateLastName}}</td>
+            <td>{{e.email}}</td>
+            <td>{{e.associateMobilenumber}}</td>
+        </tr>
+        <tr *ngFor="let e of get">
+            <td>{{e.associateId}} </td>
+            <td>{{e.associateFirstName}} </td>
+            <td>{{e.associateLastName}}</td>
+            <td>{{e.email}}</td>
+            <td>{{e.associateMobilenumber}}</td>
+        </tr>
+    </table>
+    <article>
+        <h2><span>Search:</span></h2>
+        <form #searchFrm="ngForm" (submit)="search(searchFrm.value)">
+            <input type="text" placeholder="search" name="search" ngModel /> <br/>
+            <input type="submit" value="Add" />
+        </form>
+
+        <select (change)="selectChangeHandler($event)">
+           <option value="associateFirstName">fName</option>
+           <option value="associateLastName">lName</option>
+           <option value="email">Email</option>
+           <option value="associateMobilenumber">Number</option>
+        </select>
+    </article>
 </div>
+
 <router-outlet></router-outlet>

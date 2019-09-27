@@ -1,0 +1,112 @@
+1. *
+2. kutta billi - exception thrown
+7. 1 - 2 - 3 as in input
+9. class man private dog best friend  {Q. 185}
+11 remove all emplty - true
+13. reverse olleH
+16. condition false always in such 
+
+
+<N> 'condition always false' is always true
+
+18. iterator always in any question
+27 - missing -> x run = new x()
+	//some code - new thread 
+35. send binary output -> get output stream
+37. two afters is the answer
+43.liisd
+44. P D Pro P
+46. () after new foo is the answer
+49.commanders are in history.design is requested.
+52.session lo bore kodthe cookies tintam.
+53. long my long -> autoboxing
+58. clear (2) -> 0134
+60. many test -answer is test
+61. 17 integer
+63. it here is 'this' -> line 5 ; else line 1
+70. -1 => remove I
+72. 6x2 = 12
+76. two times t1.start => compilation error
+79. string 3 times -> ABD 
+83. obj1 to string -> object associated with string 1
+84. finally works only with finally
+
+<N> implements follows extends
+
+112. note  there is no space between the strings
+113. 6469 remember 
+119. hash map {}; 
+127. *
+130. return1 -> return2 ; return 2-> return 1
+131. default handler
+133. * AB DCB DCB {foo(a) foo(b) foo(C)  foo(d)}
+135. error -> 'linr 5' is answer; treeset -> 'line 5' is answer; 'this' -> 'line 5' is answer
+142. remove delimiter and write the rest
+181. write in order => 100 ; 101 ; 102; 103
+183. 
+184. babyracoon -> ABCF (learn answer not the option identifier)
+
+<N> bfoo bfoo
+
+187. getinstance()
+
+<N> foo = BAR => foobarfoobarfoo
+
+189. a company -> low cohesiaon, tigh coupling
+190. OO -> loser
+191. 'weak encapsulation' but not 'weaker encapsulation'  
+192. careful with string
+193. final match -> static spectator -> public watching
+194. foo always with (). dont choose only foo
+196. LinkedList
+
+<N> baby racoon -> ABCF, {cat dog -> BCF (Q. 200)}
+
+202. A extends B -> TestB
+203. 'getName' -> name ; 'getabsolutepath' -> complete path
+206. TypeA but not 0TypeA
+
+<N> tree map -> [] ; hash map {}
+
+
+--------------------------------------------------
+
+check sanfoundary: exception, multithreading, JAVA environment and oops concept, classes and method, inheritance, string, serialization 1,2,3; exception handling.
+
+careerride.com -> Online test -> Java Part 1 (39) and Java Part 2 (40) //last priority
+
+-------------------------------------------------
+
+
+1. deserialization (very long question)
+2. there is no deserialization thus, s=Hello, i=7 {a} - again a ver y long question
+
+16. 'c texas 11' cancat in order in question
+
+19. calendar.month
+20. 'abc; in lowercase in quesiton and below there is no UpperCse => answer : abc
+23. tom jerry = 0 0 122
+
+<N> compliation error is option => mostly the answer
+24. speed * weight => compliation error; answer is not 27 mph
+27. foo() in all option => V P Pro
+
+31. input2 0 3 => abc
+		||
+		\/
+<N> input1 => abcde and input2 => abc
+
+32. one two
+
+34 . method is not defined properly {learn}
+
+35. run time class 'casting'
+
+
+
+
+
+
+
+ 
+
